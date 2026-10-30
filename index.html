@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayanth Gonugunta Venkata - Portfolio</title>
+    <title>Jayanth Gonugunta Venkata – Cloud &amp; DevOps Engineer | Portfolio</title>
+    <meta name="description" content="Jayanth Gonugunta Venkata – Cloud &amp; DevOps Engineer, AWS Certified Solutions Architect – Associate, AI/ML. Open to Cloud Engineer, DevOps, SRE and MLOps roles.">
     <style>
         * {
             margin: 0;
@@ -591,6 +592,91 @@
             }
         }
 
+        /* Added: tagline, subsections, certifications, doc links */
+        .header-tagline {
+            color: #b0b0b0;
+            font-size: 0.85rem;
+            margin: 2px 0 0;
+        }
+
+        .subsection-title {
+            color: #00d4ff;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 50px 0 25px;
+        }
+
+        .doc-links {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .cert-icon {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+        }
+
+        .cert-name {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .cert-issuer {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #00d4ff;
+        }
+
+        .education-item + .education-item {
+            margin-top: 30px;
+        }
+
+        .nav-links {
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .header-info h1, .header-tagline {
+                white-space: normal;
+            }
+        }
+
         /* Scroll animations */
         .fade-in {
             opacity: 0;
@@ -611,11 +697,13 @@
             <div class="top-bar-content">
                 <div class="header-info">
                     <h1>Jayanth Gonugunta Venkata</h1>
+                    <p class="header-tagline">Cloud &amp; DevOps Engineer | AWS Certified Solutions Architect – Associate | AI/ML</p>
                 </div>
                 <nav class="nav-links">
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
                     <a href="#experience">Experience</a>
+                    <a href="#certifications">Certifications</a>
                     <a href="#projects">Projects</a>
                     <a href="#education">Education</a>
                     <a href="#contact">Contact</a>
@@ -634,31 +722,31 @@
             <div class="about-content fade-in">
                 <img src="Jayanth.jpg" alt="Jayanth Gonugunta Venkata" class="profile-pic">
                 <div class="about-text" id="about-text-content">
-                    <h3 style="color: #00d4ff; font-size: 1.4rem; margin-bottom: 20px;">🎯 Career Objective</h3>
-                    <p>I am a <strong>driven and solution-oriented Computer Science student</strong> specializing in <strong>Artificial Intelligence and Machine Learning</strong>, with a strong foundation in cloud technologies, DevOps practices, and system operations.</p>
-                    
-                    <h4 style="color: #00d4ff; font-size: 1.2rem; margin-top: 25px; margin-bottom: 15px;">🚀 Core Expertise</h4>
+                    <h3 style="color: #00d4ff; font-size: 1.4rem; margin-bottom: 20px;">☁️ Professional Summary</h3>
+                    <p>I am an <strong>AWS Certified Solutions Architect – Associate</strong> and <strong>Cloud Engineer</strong> with hands-on experience provisioning, monitoring and troubleshooting AWS infrastructure (EC2, S3, IAM, VPC) and Linux servers for international clients in Indonesia, Singapore and Sri Lanka. I hold a <strong>B.Tech in Computer Science Engineering (AI &amp; ML)</strong>, completed in 2025.</p>
+
+                    <h4 style="color: #00d4ff; font-size: 1.2rem; margin-top: 25px; margin-bottom: 15px;">🚀 What I Do</h4>
                     <ul style="color: #c0c0c0; line-height: 1.8; list-style: none; padding-left: 0;">
                         <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
                             <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
-                            Building scalable AI solutions using Python, ML frameworks, and deep learning techniques
+                            Provision, monitor and troubleshoot AWS infrastructure and Linux servers
                         </li>
                         <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
                             <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
-                            Data preprocessing, model development, evaluation, and deployment
+                            Build CI/CD pipelines with Jenkins, Git and Docker
                         </li>
                         <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
                             <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
-                            Real-time ML applications and automation systems
+                            Automate operations with Python and Shell scripting
                         </li>
                         <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
                             <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
-                            Cloud-native AI deployments with AWS, Linux, and Docker
+                            Build and deploy AI/ML and LLM applications
                         </li>
                     </ul>
-                    
+
                     <p style="margin-top: 25px; font-style: italic; color: #a0a0a0;">
-                        <strong>Mission:</strong> Eager to contribute to impactful AI-driven systems that solve real-world problems and drive innovation.
+                        <strong>Open to:</strong> Cloud Engineer, DevOps Engineer, SRE and MLOps roles. Available to join immediately.
                     </p>
                 </div>
             </div>
@@ -668,154 +756,83 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Skills & Technologies</h2>
+            <h2 class="section-title fade-in">Skills &amp; Technologies</h2>
             <div class="skills-grid fade-in">
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <h3>Cloud</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/python/python-original.svg" alt="Python" class="skill-icon">
-                            Python
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/java/java-original.svg" alt="Java" class="skill-icon">
-                            Java
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon">
-                            SQL
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/c/c-original.svg" alt="C" class="skill-icon">
-                            C
-                        </span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/amazonwebservices/amazonwebservices-original.svg" alt="" class="skill-icon">AWS</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-ec2.svg" alt="" class="skill-icon">EC2</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-s3.svg" alt="" class="skill-icon">S3</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-iam.svg" alt="" class="skill-icon">IAM</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-vpc.svg" alt="" class="skill-icon">VPC</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-lambda.svg" alt="" class="skill-icon">Lambda</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-aurora.svg" alt="" class="skill-icon">Aurora</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-cloudwatch.svg" alt="" class="skill-icon">CloudWatch</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/googlecloud/googlecloud-original.svg" alt="" class="skill-icon">Google Cloud (GCP)</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>AI/ML Technologies</h3>
+                    <h3>DevOps &amp; CI/CD</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">
-                            <img src="https://api.iconify.design/tabler/brain.svg?color=%2300d4ff" alt="Machine Learning" class="skill-icon">
-                            Machine Learning
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://api.iconify.design/tabler/topology-star-3.svg?color=%2300d4ff" alt="Deep Learning" class="skill-icon">
-                            Deep Learning
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="skill-icon">
-                            TensorFlow
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-Learn" class="skill-icon">
-                            Scikit-Learn
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-icon">
-                            Pandas
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-icon">
-                            NumPy
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://api.iconify.design/tabler/sparkles.svg?color=%2300d4ff" alt="Generative AI" class="skill-icon">
-                        </svg>
-                            Generative AI
-                        </span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/docker/docker-original.svg" alt="" class="skill-icon">Docker</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/jenkins/jenkins-original.svg" alt="" class="skill-icon">Jenkins</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/refresh.svg?color=%2300d4ff" alt="" class="skill-icon">CI/CD Pipelines</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/git/git-original.svg" alt="" class="skill-icon">Git</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/mdi/github.svg?color=%23ffffff" alt="" class="skill-icon">GitHub</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/box.svg?color=%2300d4ff" alt="" class="skill-icon">Containerization</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/settings-automation.svg?color=%2300d4ff" alt="" class="skill-icon">Infrastructure Automation</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Data Visualization</h3>
+                    <h3>Operating Systems &amp; Scripting</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">
-                            <img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI" class="skill-icon">
-                            Power BI
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau" class="skill-icon">
-                            Tableau
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" class="skill-icon">
-                            Matplotlib
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://api.iconify.design/logos/seaborn-icon.svg" alt="Seaborn" class="skill-icon">
-                            Seaborn
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel" class="skill-icon">
-                            Excel
-                        </span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/linux/linux-original.svg" alt="" class="skill-icon">Linux Administration</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/bash/bash-original.svg" alt="" class="skill-icon">Shell Scripting (Bash)</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/network.svg?color=%2300d4ff" alt="" class="skill-icon">Networking Fundamentals</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Cloud & DevOps</h3>
+                    <h3>Monitoring</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" class="skill-icon">
-                            AWS
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/docker/docker-original.svg" alt="Docker" class="skill-icon">
-                            Docker
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/jenkins/jenkins-original.svg" alt="Jenkins" class="skill-icon">
-                            Jenkins
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/linux/linux-original.svg" alt="Linux" class="skill-icon">
-                            Linux
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/git/git-original.svg" alt="Git/GitHub" class="skill-icon">
-                            Git/GitHub
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/bash/bash-original.svg" alt="Shell Scripting" class="skill-icon">
-                            Shell Scripting
-                        </span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/grafana/grafana-original.svg" alt="" class="skill-icon">Grafana</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-cloudwatch.svg" alt="" class="skill-icon">Amazon CloudWatch</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/bug.svg?color=%2300d4ff" alt="" class="skill-icon">Incident Troubleshooting</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/search.svg?color=%2300d4ff" alt="" class="skill-icon">Root Cause Analysis</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Development Tools</h3>
+                    <h3>Programming &amp; Databases</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/vscode/vscode-original.svg" alt="Visual Studio Code" class="skill-icon">
-                            Visual Studio Code
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/jupyter/jupyter-original.svg" alt="Jupyter Notebook" class="skill-icon">
-                            Jupyter Notebook
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/googlecolab/googlecolab-original.svg" alt="Google Colab" class="skill-icon">
-                            Google Colab
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/anaconda/anaconda-original.svg" alt="Anaconda" class="skill-icon">
-                            Anaconda
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/streamlit/streamlit-original.svg" alt="Streamlit" class="skill-icon">
-                            Streamlit
-                        </span>
-                        <span class="skill-tag">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/pycharm/pycharm-original.svg" alt="PyCharm" class="skill-icon">
-                            PyCharm
-                        </span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/python/python-original.svg" alt="" class="skill-icon">Python</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/mysql/mysql-original.svg" alt="" class="skill-icon">SQL</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/cplusplus/cplusplus-original.svg" alt="" class="skill-icon">C++</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Soft Skills</h3>
+                    <h3>AI/ML &amp; Automation</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Teamwork</span>
-                        <span class="skill-tag">Adaptability</span>
-                        <span class="skill-tag">Communication</span>
-                        <span class="skill-tag">Self-Motivation</span>
-                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/brain.svg?color=%2300d4ff" alt="" class="skill-icon">Machine Learning</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/topology-star-3.svg?color=%2300d4ff" alt="" class="skill-icon">Deep Learning</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/language.svg?color=%2300d4ff" alt="" class="skill-icon">NLP</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/message-chatbot.svg?color=%2300d4ff" alt="" class="skill-icon">LLMs</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" class="skill-icon">OpenAI API</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/claude-icon.svg" alt="" class="skill-icon">Claude</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/chart-dots.svg?color=%2300d4ff" alt="" class="skill-icon">Model Evaluation</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/adjustments-alt.svg?color=%2300d4ff" alt="" class="skill-icon">Feature Engineering</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/n8n.svg" alt="" class="skill-icon">n8n Workflow Automation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data &amp; Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/pandas/pandas-original.svg" alt="" class="skill-icon">Pandas</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/numpy/numpy-original.svg" alt="" class="skill-icon">NumPy</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/matplotlib/matplotlib-original.svg" alt="" class="skill-icon">Matplotlib</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/seaborn-icon.svg" alt="" class="skill-icon">Seaborn</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="" class="skill-icon">Power BI</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/streamlit/streamlit-original.svg" alt="" class="skill-icon">Streamlit</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="" class="skill-icon">MS Excel</span>
                     </div>
                 </div>
             </div>
@@ -826,26 +843,61 @@
     <section id="experience" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Professional Experience</h2>
-            
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Cloud Engineer Intern</div>
+                        <div class="experience-company">Orbit Future (PT Orbit Ventura Indonesia), Jakarta (Remote)</div>
+                    </div>
+                    <div class="experience-date">Dec 2025 – Apr 2026</div>
+                </div>
+                <div class="experience-description">
+                    <p>International remote internship serving clients in Indonesia, Singapore and Sri Lanka.</p>
+                    <ul>
+                        <li>Provisioned and configured AWS infrastructure (EC2, S3, IAM) for 10+ client applications, supporting scalable and secure deployments.</li>
+                        <li>Monitored and maintained 20+ AWS EC2 instances and Linux servers, sustaining 99.5% uptime for client applications.</li>
+                        <li>Responded to client incidents within 30–45 minutes and resolved 95% of tickets within 24 hours, prioritized by complexity.</li>
+                        <li>Diagnosed and resolved Linux server performance bottlenecks through log analysis and root cause analysis, reducing repeat incidents.</li>
+                        <li>Led technical calls with 10+ international clients in Indonesia, Singapore and Sri Lanka to resolve cloud infrastructure and networking issues.</li>
+                    </ul>
+                    <div class="doc-links">
+                        <a href="https://drive.google.com/file/d/14i8FRkUgkbVrVqDeeuBvF6al38haPYpA/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Offer Letter</a>
+                        <a href="https://drive.google.com/file/d/1hZAFmdyI97IUFKR2ibAZOQgBXTXQTdgi/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Experience Certificate</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title fade-in">Training</h3>
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">AWS re/Start Program</div>
+                        <div class="experience-company">GMR Varalakshmi Foundation</div>
+                    </div>
+                    <div class="experience-date">Aug 2025 – Nov 2025</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Completed hands-on training in AWS cloud fundamentals and Linux administration, with labs on EC2, S3, IAM, VPC, Aurora, Lambda and CloudWatch.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="subsection-title fade-in">Earlier Experience</h3>
             <div class="experience-item fade-in">
                 <div class="experience-header">
                     <div>
                         <div class="experience-title">AIML Intern</div>
                         <div class="experience-company">Labmentix Private Limited</div>
                     </div>
-                    <div class="experience-date">July 2025 - Present</div>
+                    <div class="experience-date">2025</div>
                 </div>
                 <div class="experience-description">
-                    <p>Currently working on AI/ML projects and research initiatives, focusing on practical application of machine learning concepts in educational technology.</p>
-                    <p><strong>🛠️ Core Skills Being Developed:</strong></p>
                     <ul>
-                        <li>🤖 Designing and developing AI/ML algorithms for real-world use cases</li>
-                        <li>📊 Building and training machine learning models using Python and data science libraries (Pandas, NumPy, scikit-learn)</li>
-                        <li>📈 Data preprocessing, feature engineering, and interpreting complex datasets</li>
-                        <li>🧠 Applying deep learning frameworks (TensorFlow, PyTorch) for advanced projects</li>
-                        <li>🤝 Team-based collaboration and agile project management to solve industry problems</li>
-                        <li>🔄 Translating theoretical knowledge into deployable, practical solutions</li>
-                        <li>🌱 Receiving personalized mentorship and professional growth guidance</li>
+                        <li>Built and trained machine learning models in Python with Pandas, NumPy and scikit-learn on real-world use cases.</li>
+                        <li>Handled data preprocessing, feature engineering and model evaluation, and turned the results into deployable solutions.</li>
+                        <li>Worked in a mentored, team-based setting on industry problem statements.</li>
                     </ul>
                 </div>
             </div>
@@ -854,19 +906,15 @@
                 <div class="experience-header">
                     <div>
                         <div class="experience-title">Data Scientist Intern</div>
-                        <div class="experience-company">Evoastra Ventures Inc</div>
+                        <div class="experience-company">Evoastra Ventures Inc (Remote)</div>
                     </div>
-                    <div class="experience-date">July 2025 - August 2025</div>
+                    <div class="experience-date">Jul 2025 – Aug 2025</div>
                 </div>
                 <div class="experience-description">
-                    <p>🔍 <strong>Remote Data Science Internship</strong> at a forward-thinking firm specializing in AI, machine learning, and data science solutions (www.evoastra.com).</p>
-                    <p>Contributed to real-world projects involving predictive analytics, business intelligence, and large-scale data interpretation.</p>
                     <ul>
-                        <li>Built predictive models and worked with complex datasets to extract actionable insights</li>
-                        <li>Collaborated with cross-functional teams to solve data-driven business problems</li>
-                        <li>Gained hands-on experience in statistical modeling, machine learning, and data visualization using Python, SQL, Tableau/Power BI</li>
-                        <li>Applied academic knowledge to practical use cases under the mentorship of experienced professionals</li>
-                        <li>Contributed to an organization committed to innovation, growth, and impactful data solutions</li>
+                        <li>Built predictive models and worked with complex datasets to extract actionable insights.</li>
+                        <li>Applied statistical modeling, machine learning and data visualization using Python, SQL and Power BI.</li>
+                        <li>Collaborated with cross-functional teams on data-driven business problems.</li>
                     </ul>
                 </div>
             </div>
@@ -877,17 +925,41 @@
                         <div class="experience-title">Data Analyst</div>
                         <div class="experience-company">Ozibook Tech Solutions Pvt Ltd</div>
                     </div>
-                    <div class="experience-date">December 2024 - March 2025</div>
+                    <div class="experience-date">Dec 2024 – Mar 2025</div>
                 </div>
                 <div class="experience-description">
                     <ul>
-                        <li>Streamlined data analysis to support IT, pharmaceuticals, and FMCG sectors, contributing to lead generation efforts by targeting 900-1200 leads monthly</li>
-                        <li>Identified and qualified warm leads from LinkedIn, Apollo, and ContactOut, gathering key information for 30 leads daily</li>
-                        <li>Created interactive dashboards to track weekly and monthly lead generation progress</li>
-                        <li>Automated data updates and reporting in dashboards, cutting manual reporting time by 70%</li>
-                        <li>Customized dashboards for multiple teams, improving data accessibility and reducing data retrieval time by 50%</li>
-                        <li>Collected and processed details for 1500 leads in DA-Batch 13 across various domain projects</li>
+                        <li>Supported lead generation for IT, pharmaceutical and FMCG clients, targeting 900–1,200 leads per month.</li>
+                        <li>Identified and qualified leads from LinkedIn, Apollo and ContactOut.</li>
+                        <li>Built and automated interactive dashboards tracking weekly and monthly lead-generation progress.</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Certifications</h2>
+            <div class="cert-grid fade-in">
+                <div class="cert-card">
+                    <img src="https://api.iconify.design/logos/aws.svg" alt="" class="cert-icon">
+                    <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                    <a href="https://drive.google.com/file/d/10F6EhxB_HMCqD36dh5j6snCJ7SPvfrh5/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Verify</a>
+                </div>
+                <div class="cert-card">
+                    <img src="https://api.iconify.design/logos/aws.svg" alt="" class="cert-icon">
+                    <div class="cert-name">AWS Certified Cloud Practitioner</div>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                    <a href="https://drive.google.com/file/d/1DXO4mrRorQ48-ywPeFcwGxYEZaV5xlf8/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Verify</a>
+                </div>
+                <div class="cert-card">
+                    <img src="https://api.iconify.design/tabler/certificate.svg?color=%2300d4ff" alt="" class="cert-icon">
+                    <div class="cert-name">TCS iON Career Edge – Young Professional</div>
+                    <div class="cert-issuer">Tata Consultancy Services</div>
+                    <a href="https://drive.google.com/file/d/1absF_-ctJZsYgDEOBrJU5aJOan1x5Si7/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Verify</a>
                 </div>
             </div>
         </div>
@@ -896,60 +968,127 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title fade-in"> Real-Time Projects</h2>
+            <h2 class="section-title fade-in">Projects</h2>
             <div class="projects-grid fade-in">
                 <div class="project-card">
-                    <div class="project-title">Optimization of Dynamic Credit Scoring Model For Financial Risk Assessment </div>
-                    <div class="project-tools">Python, Streamlit, Machine Learning, Random Forest, LSTM, XGBoost</div>
-                    <div class="project-description">
-                        <p>Achieved an 82.83% accuracy rate in credit score prediction by developing and deploying a machine learning model. Built a real-time credit scoring engine leveraging multiple ML algorithms, decreasing average credit decision time by 60%. Enhanced data quality through comprehensive preprocessing and validation techniques with 98% accuracy.</p>
+                    <div>
+                        <div class="project-title">DeepCSAT – E-commerce Customer Satisfaction Prediction</div>
+                        <div class="project-tools">Python, NLP, scikit-learn, TensorFlow/Keras (Bi-LSTM), Streamlit</div>
+                        <div class="project-description">
+                            <p>Predicts whether a customer is satisfied from the free-text remarks left after a support interaction, using a TF-IDF + Logistic Regression baseline and a Bidirectional LSTM, served through a Streamlit app and a CLI. The baseline reaches 86.5% test accuracy (macro F1 0.78) against a 77.5% majority-class baseline.</p>
+                        </div>
                     </div>
-                    <a href="https://github.com/Gonugunta-Venkata-Jayanth/-Optimization-of-Dynamic-Credit-Scoring-Model-For-Financial-Risk-Assessment" class="project-link" target="_blank">View on GitHub</a>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/DeepCSAT-Ecommerce-Customer-Satisfaction-Score-Prediction" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Reddit Persona Generator</div>
-                    <div class="project-tools">Python, PRAW API, OpenAI, JSON, Git</div>
-                    <div class="project-description">
-                        <p>Analyzes a Reddit user's posts and comments to generate detailed psychological and behavioral personas, including traits, interests, tone, and values. Utilizes Reddit API for data scraping and AI language models for persona generation with citations from actual Reddit activity.</p>
+                    <div>
+                        <div class="project-title">Reddit Persona Generator – LLM Application</div>
+                        <div class="project-tools">Python, PRAW (Reddit API), OpenAI API, JSON</div>
+                        <div class="project-description">
+                            <p>Collects a Reddit user's recent posts and comments through the official Reddit API, caches them as structured JSON, and has an OpenAI GPT model build a behavioral persona in which every trait cites the post or comment it came from.</p>
+                        </div>
                     </div>
-                    <a href="https://github.com/Gonugunta-Venkata-Jayanth/Reddit_Persona_Generator" class="project-link" target="_blank">View on GitHub</a>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Reddit_Persona_Generator" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Spam Call Analysis Dashboard</div>
-                    <div class="project-tools">Power BI, Excel</div>
-                    <div class="project-description">
-                        <p>Engineered an interactive dashboard that processed over 10,000 calls to accurately identify and classify spam at a rate of 35%. The system leveraged data visualization techniques to categorize spam calls and uncover critical patterns in call duration and frequency. This optimization led to a 30% improvement in report loading time, enabling stakeholders to make faster, more informed decisions.</p>
+                    <div>
+                        <div class="project-title">Integrated Retail Analytics for Store Optimization</div>
+                        <div class="project-tools">Python, Pandas, scikit-learn, XGBoost, FastAPI</div>
+                        <div class="project-description">
+                            <p>Merges 421,000+ weekly store and department sales records with store attributes and external factors (holidays, markdowns, fuel price, CPI, unemployment) to forecast weekly sales with Random Forest and XGBoost, exposed through a FastAPI prediction service.</p>
+                        </div>
                     </div>
-                    <a href="https://github.com/Gonugunta-Venkata-Jayanth/Spam-Call-Analysis-" class="project-link" target="_blank">View on GitHub</a>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Integrated-Retail-Analytics-for-Store-Optimization" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Credit Risk Analyzer</div>
-                    <div class="project-tools">Core Java, CSV Processing, CLI Application</div>
-                    <div class="project-description">
-                        <p><strong>🎯 Objective:</strong> Evaluate financial applicants' creditworthiness using multiple credit-related factors and generate Composite Credit Risk Scores.</p>
-                        <p><strong>Key Features:</strong></p>
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li>• <strong>Data Ingestion:</strong> CSV file processing with robust error handling</li>
-                            <li>• <strong>Composite Scoring:</strong> Weighted algorithm using CIBIL Score, Payment History, Credit Utilization, Credit Age, Debt-to-Income Ratio, and Hard Inquiries</li>
-                            <li>• <strong>Risk Classification:</strong> Automated categorization into Low (≥70), Medium (50-69), or High (<50) risk categories</li>
-                            <li>• <strong>Reporting:</strong> Generates detailed CSV reports and console summaries with risk analytics</li>
-                        </ul>
+                    <div>
+                        <div class="project-title">Job Intelligence Platform</div>
+                        <div class="project-tools">Python, SQLAlchemy, NLP, scikit-learn, FastAPI, Streamlit, Power BI</div>
+                        <div class="project-description">
+                            <p>End-to-end job-market analytics pipeline: scrapers pull live postings from the public Remotive and Arbeitnow APIs, an ETL step loads them into a relational database, NLP tags in-demand skills, an ML model estimates salaries, and insights are served through FastAPI, Streamlit and Power BI.</p>
+                        </div>
                     </div>
-                    <a href="https://github.com/Gonugunta-Venkata-Jayanth/Credit-Risk-Analyzer" class="project-link" target="_blank">View on GitHub</a>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Job-Intelligence-Platform" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">IoT Fire Detection System</div>
-                    <div class="project-tools">Raspberry Pi 3, Flame Sensor, MQ2 Sensor, Arduino</div>
-                    <div class="project-description">
-                        <p>Developed a real-time fire detection system with 95% accuracy and response time under 2-5 seconds. Integrated multiple detection techniques including flame detection and smoke recognition, reducing false positives by 30% while accommodating 50% increase in user demand.</p>
+                    <div>
+                        <div class="project-title">Aerial Object Classification &amp; Detection</div>
+                        <div class="project-tools">Python, TensorFlow (MobileNetV2), Ultralytics YOLOv8, Streamlit</div>
+                        <div class="project-description">
+                            <p>Tells birds from drones in aerial images: a MobileNetV2 transfer-learning classifier scores 0.97 test accuracy, and a fine-tuned YOLOv8n detector (mAP50 0.795) locates and counts every bird and drone in a scene, both available in a Streamlit app.</p>
+                        </div>
                     </div>
-                    <a href="https://drive.google.com/file/d/1tD6k8u0aQ8R-nHuHwk4vL_SZnlMUXoZd/view?usp=drive_link" class="project-link" target="_blank">View on Google Drive</a>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Aerial-Object-Classification-Detection" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
                 </div>
 
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">EMIPredict AI – Financial Risk Assessment Platform</div>
+                        <div class="project-tools">Python, scikit-learn, XGBoost, MLflow, Streamlit</div>
+                        <div class="project-description">
+                            <p>Predicts EMI eligibility (classification) and a safe maximum monthly EMI (regression) from applicant financial profiles, with feature engineering on affordability and debt ratios, MLflow experiment tracking and a multi-page Streamlit app.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/EMIPredict-AI---Intelligent-Financial-Risk-Assessment-Platform" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Credit Risk Analyzer</div>
+                        <div class="project-tools">Core Java, CSV Processing, CLI Application</div>
+                        <div class="project-description">
+                            <p>Dependency-free Java CLI that combines CIBIL score, payment history, credit utilization, credit age, debt-to-income ratio and hard inquiries into a weighted 0–100 composite score. On a 10,000-applicant synthetic dataset it classifies 1,662 as LOW, 4,767 as MEDIUM and 3,571 as HIGH risk and writes a CSV report.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Credit-Risk-Analyzer" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Cloud Build → GKE CI/CD Pipeline (sample-app)</div>
+                        <div class="project-tools">Go, Docker (distroless), Google Cloud Build, Artifact Registry, GKE, Kubernetes</div>
+                        <div class="project-description">
+                            <p>Minimal Go web service shipped through Google Cloud Build pipelines that run tests, build a multi-stage distroless image, push it to Artifact Registry and deploy to separate dev and prod namespaces on GKE, with 3-replica Deployments and health probes.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/sample-app" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Call-Center Performance Dashboard</div>
+                        <div class="project-tools">Power BI, Power Query, Excel</div>
+                        <div class="project-description">
+                            <p>One-page Power BI report on call-center data showing answered vs. unanswered calls, call load and satisfaction ratings by agent, and speed of answer by call topic.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Spam-Call-Analysis-" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">IoT Fire Detection System</div>
+                        <div class="project-tools">Raspberry Pi 3, Flame Sensor, MQ2 Sensor, Arduino</div>
+                        <div class="project-description">
+                            <p>Real-time fire detection system that combines flame detection and smoke sensing on a Raspberry Pi to raise alerts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Weekly Builds</div>
+                        <div class="project-tools">AWS, Linux, ML, Data Analytics</div>
+                        <div class="project-description">
+                            <p>An ongoing series of full-stack projects shipped every Tuesday, Thursday and Saturday, each with a frontend, backend, tests, Docker, CI and a free-tier deployment.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/weekly-builds" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1000,11 +1139,11 @@
             <div class="contact-info fade-in">
                 <div class="contact-item">
                     <img src="https://api.iconify.design/logos/google-gmail.svg" alt="Email">
-                    <span>jayanth792033@gmail.com</span>
+                    <a href="mailto:jayanth792033@gmail.com">jayanth792033@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <img src="https://api.iconify.design/tabler/phone.svg?color=%2300d4ff" alt="Phone">
-                    <span>+91 9182015768</span>
+                    <a href="tel:+919182015768">+91 9182015768</a>
                 </div>
                 <div class="contact-item">
                     <img src="https://api.iconify.design/tabler/map-pin.svg?color=%2300d4ff" alt="Location">
@@ -1012,11 +1151,11 @@
                 </div>
                 <div class="contact-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-                    <span>linkedin.com/in/gv-jayanth</span>
+                    <a href="https://www.linkedin.com/in/gv-jayanth" target="_blank" rel="noopener">linkedin.com/in/gv-jayanth</a>
                 </div>
                 <div class="contact-item">
                     <img src="https://api.iconify.design/mdi/github.svg?color=%23ffffff" alt="GitHub">
-                    <span>github.com/Gonugunta-Venkata-Jayanth</span>
+                    <a href="https://github.com/Gonugunta-Venkata-Jayanth" target="_blank" rel="noopener">github.com/Gonugunta-Venkata-Jayanth</a>
                 </div>
             </div>
         </div>
@@ -1029,19 +1168,22 @@
                 <a href="mailto:jayanth792033@gmail.com" title="Email">
                     <img src="https://api.iconify.design/logos/google-gmail.svg" alt="Gmail" class="social-icon">
                 </a>
-                <a href="https://linkedin.com/in/gv-jayanth" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/gv-jayanth" title="LinkedIn" target="_blank" rel="noopener">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="social-icon">
                 </a>
-                <a href="https://github.com/Gonugunta-Venkata-Jayanth" title="GitHub">
+                <a href="https://github.com/Gonugunta-Venkata-Jayanth" title="GitHub" target="_blank" rel="noopener">
                     <img src="https://api.iconify.design/mdi/github.svg?color=%23ffffff" alt="GitHub" class="social-icon">
                 </a>
             </div>
-            <p>&copy; 2025 Jayanth Gonugunta Venkata. All rights reserved.</p>
-            <p>Passionate about AI • Machine Learning • Data Science</p>
+            <p>&copy; <span id="footer-year">2026</span> Jayanth Gonugunta Venkata. All rights reserved.</p>
+            <p>Cloud • DevOps • AI/ML</p>
         </div>
     </footer>
     
     <script>
+        // Footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1100,8 +1242,8 @@
 
         function getAboutText() {
             return aboutText.innerText
-                .replace('🎯 Career Objective', 'Career Objective.')
-                .replace('🚀 Core Expertise', 'Core Expertise.')
+                .replace('☁️ Professional Summary', 'Professional Summary.')
+                .replace('🚀 What I Do', 'What I Do.')
                 .replace(/▶/g, '')
                 .replace(/\s+/g, ' ')
                 .trim();
