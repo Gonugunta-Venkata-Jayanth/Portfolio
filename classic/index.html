@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayanth Gonugunta Venkata – Cloud &amp; DevOps Engineer | Portfolio</title>
+    <meta name="description" content="Jayanth Gonugunta Venkata – Cloud &amp; DevOps Engineer, AWS Certified Solutions Architect – Associate, AI/ML. Open to Cloud Engineer, DevOps, SRE and MLOps roles.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            /* Using a new dynamic glitch grid SVG pattern */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg stroke='%239C92AC' stroke-width='1' fill='none'%3E%3Crect width='100' height='100'/%3E%3Cpath d='M100 0L0 100M0 0l100 100' stroke-opacity='0.1'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: rgba(42, 42, 42, 0.8); /* Semi-transparent background */
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #444;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .top-bar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .profile-pic {
+            width: 200px; /* New, larger size for the section */
+            height: 280px;
+            border-radius: 20px; /* Rounded corners */
+            border: 2px solid #00d4ff;
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        .header-info {
+            flex-grow: 1; /* Allow to take up available space */
+            margin-right: auto;
+        }
+
+        .header-info h1 {
+            font-size: 1.3rem; /* Reduced font size to fit on one line */
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0;
+            white-space: nowrap; /* Ensures name stays on one line */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px; /* Reduced gap between links */
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 8px 12px; /* Reduced padding */
+            border-radius: 20px; /* Adjusted border radius */
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+            font-size: 0.9rem; /* Slightly smaller font for links */
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-links a:hover::before {
+            left: 0;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+            border: 1px solid #00d4ff; /* Add a border on hover */
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #00d4ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            border-radius: 2px;
+        }
+        
+        .section-header-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .section-header-row h2 {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 250px 1fr; /* New grid layout for image and text */
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #c0c0c0;
+        }
+        
+        .tts-button {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .tts-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .contact-item img {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #444, #333);
+            color: #e0e0e0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #555;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .skill-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .experience-title {
+            color: #00d4ff;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: #b0b0b0;
+            font-size: 1rem;
+            background: #333;
+            padding: 5px 15px;
+            border-radius: 15px;
+        }
+
+        .experience-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-description li {
+            color: #c0c0c0;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .experience-description li::before {
+            content: '▶';
+            color: #00d4ff;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+        }
+
+        .project-title {
+            color: #00d4ff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .project-tools {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .project-description {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 212, 255, 0.4);
+            margin-right: 10px; /* Add margin to separate buttons */
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 212, 255, 0.6);
+        }
+        
+        .loading-spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #00d4ff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Education Section */
+        .education-item {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .education-degree {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .education-school {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .education-details {
+            color: #b0b0b0;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .contact-item img {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #444;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #b0b0b0;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+
+        .social-links a:hover {
+            color: #00d4ff;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-info h1 {
+                font-size: 1.2rem;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .nav-links {
+                margin-left: 0;
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .section-header-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .section-title {
+                margin-bottom: 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Added: tagline, subsections, certifications, doc links */
+        .header-tagline {
+            color: #b0b0b0;
+            font-size: 0.85rem;
+            margin: 2px 0 0;
+        }
+
+        .subsection-title {
+            color: #00d4ff;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 50px 0 25px;
+        }
+
+        .doc-links {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .cert-icon {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+        }
+
+        .cert-name {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .cert-issuer {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #00d4ff;
+        }
+
+        .education-item + .education-item {
+            margin-top: 30px;
+        }
+
+        .nav-links {
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .header-info h1, .header-tagline {
+                white-space: normal;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="header-info">
+                    <h1>Jayanth Gonugunta Venkata</h1>
+                    <p class="header-tagline">Cloud &amp; DevOps Engineer | AWS Certified Solutions Architect – Associate | AI/ML</p>
+                </div>
+                <nav class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header-row fade-in">
+                <h2 class="section-title">About Me</h2>
+                <button type="button" id="ttsButton" class="tts-button" aria-label="Read the About section aloud"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg><span>Read Aloud</span></button>
+            </div>
+            <div class="about-content fade-in">
+                <img src="/classic/Jayanth.jpg" alt="Jayanth Gonugunta Venkata" class="profile-pic">
+                <div class="about-text" id="about-text-content">
+                    <h3 style="color: #00d4ff; font-size: 1.4rem; margin-bottom: 20px;">☁️ Professional Summary</h3>
+                    <p>I am an <strong>AWS Certified Solutions Architect – Associate</strong> and <strong>Cloud Engineer</strong> with hands-on experience provisioning, monitoring and troubleshooting AWS infrastructure (EC2, S3, IAM, VPC) and Linux servers for international clients in Indonesia, Singapore and Sri Lanka. I hold a <strong>B.Tech in Computer Science Engineering (AI &amp; ML)</strong>, completed in 2025.</p>
+
+                    <h4 style="color: #00d4ff; font-size: 1.2rem; margin-top: 25px; margin-bottom: 15px;">🚀 What I Do</h4>
+                    <ul style="color: #c0c0c0; line-height: 1.8; list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
+                            <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
+                            Provision, monitor and troubleshoot AWS infrastructure and Linux servers
+                        </li>
+                        <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
+                            <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
+                            Build CI/CD pipelines with Jenkins, Git and Docker
+                        </li>
+                        <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
+                            <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
+                            Automate operations with Python and Shell scripting
+                        </li>
+                        <li style="margin-bottom: 8px; position: relative; padding-left: 25px;">
+                            <span style="position: absolute; left: 0; color: #00d4ff;">▶</span>
+                            Build and deploy AI/ML and LLM applications
+                        </li>
+                    </ul>
+
+                    <p style="margin-top: 25px; font-style: italic; color: #a0a0a0;">
+                        <strong>Open to:</strong> Cloud Engineer, DevOps Engineer, SRE and MLOps roles. Available to join immediately.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Skills &amp; Technologies</h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3>Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/amazonwebservices/amazonwebservices-original.svg" alt="" class="skill-icon">AWS</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-ec2.svg" alt="" class="skill-icon">EC2</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-s3.svg" alt="" class="skill-icon">S3</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-iam.svg" alt="" class="skill-icon">IAM</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-vpc.svg" alt="" class="skill-icon">VPC</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-lambda.svg" alt="" class="skill-icon">Lambda</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-aurora.svg" alt="" class="skill-icon">Aurora</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-cloudwatch.svg" alt="" class="skill-icon">CloudWatch</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/googlecloud/googlecloud-original.svg" alt="" class="skill-icon">Google Cloud (GCP)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps &amp; CI/CD</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/docker/docker-original.svg" alt="" class="skill-icon">Docker</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/jenkins/jenkins-original.svg" alt="" class="skill-icon">Jenkins</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/refresh.svg?color=%2300d4ff" alt="" class="skill-icon">CI/CD Pipelines</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/git/git-original.svg" alt="" class="skill-icon">Git</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/mdi/github.svg?color=%23ffffff" alt="" class="skill-icon">GitHub</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/box.svg?color=%2300d4ff" alt="" class="skill-icon">Containerization</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/settings-automation.svg?color=%2300d4ff" alt="" class="skill-icon">Infrastructure Automation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Operating Systems &amp; Scripting</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/linux/linux-original.svg" alt="" class="skill-icon">Linux Administration</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/bash/bash-original.svg" alt="" class="skill-icon">Shell Scripting (Bash)</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/network.svg?color=%2300d4ff" alt="" class="skill-icon">Networking Fundamentals</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Monitoring</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/grafana/grafana-original.svg" alt="" class="skill-icon">Grafana</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/aws-cloudwatch.svg" alt="" class="skill-icon">Amazon CloudWatch</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/bug.svg?color=%2300d4ff" alt="" class="skill-icon">Incident Troubleshooting</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/search.svg?color=%2300d4ff" alt="" class="skill-icon">Root Cause Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming &amp; Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/python/python-original.svg" alt="" class="skill-icon">Python</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/mysql/mysql-original.svg" alt="" class="skill-icon">SQL</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/cplusplus/cplusplus-original.svg" alt="" class="skill-icon">C++</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI/ML &amp; Automation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/brain.svg?color=%2300d4ff" alt="" class="skill-icon">Machine Learning</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/topology-star-3.svg?color=%2300d4ff" alt="" class="skill-icon">Deep Learning</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/language.svg?color=%2300d4ff" alt="" class="skill-icon">NLP</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/message-chatbot.svg?color=%2300d4ff" alt="" class="skill-icon">LLMs</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" class="skill-icon">OpenAI API</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/claude-icon.svg" alt="" class="skill-icon">Claude</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/chart-dots.svg?color=%2300d4ff" alt="" class="skill-icon">Model Evaluation</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/tabler/adjustments-alt.svg?color=%2300d4ff" alt="" class="skill-icon">Feature Engineering</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/n8n.svg" alt="" class="skill-icon">n8n Workflow Automation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data &amp; Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/pandas/pandas-original.svg" alt="" class="skill-icon">Pandas</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/numpy/numpy-original.svg" alt="" class="skill-icon">NumPy</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/matplotlib/matplotlib-original.svg" alt="" class="skill-icon">Matplotlib</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/seaborn-icon.svg" alt="" class="skill-icon">Seaborn</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="" class="skill-icon">Power BI</span>
+                        <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/streamlit/streamlit-original.svg" alt="" class="skill-icon">Streamlit</span>
+                        <span class="skill-tag"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="" class="skill-icon">MS Excel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Experience</h2>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Cloud Engineer Intern</div>
+                        <div class="experience-company">Orbit Future (PT Orbit Ventura Indonesia), Jakarta (Remote)</div>
+                    </div>
+                    <div class="experience-date">Dec 2025 – Apr 2026</div>
+                </div>
+                <div class="experience-description">
+                    <p>International remote internship serving clients in Indonesia, Singapore and Sri Lanka.</p>
+                    <ul>
+                        <li>Provisioned and configured AWS infrastructure (EC2, S3, IAM) for 10+ client applications, supporting scalable and secure deployments.</li>
+                        <li>Monitored and maintained 20+ AWS EC2 instances and Linux servers, sustaining 99.5% uptime for client applications.</li>
+                        <li>Responded to client incidents within 30–45 minutes and resolved 95% of tickets within 24 hours, prioritized by complexity.</li>
+                        <li>Diagnosed and resolved Linux server performance bottlenecks through log analysis and root cause analysis, reducing repeat incidents.</li>
+                        <li>Led technical calls with 10+ international clients in Indonesia, Singapore and Sri Lanka to resolve cloud infrastructure and networking issues.</li>
+                    </ul>
+                    <div class="doc-links">
+                        <a href="https://drive.google.com/file/d/14i8FRkUgkbVrVqDeeuBvF6al38haPYpA/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Offer Letter</a>
+                        <a href="https://drive.google.com/file/d/1hZAFmdyI97IUFKR2ibAZOQgBXTXQTdgi/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Experience Certificate</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title fade-in">Training</h3>
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">AWS re/Start Program</div>
+                        <div class="experience-company">GMR Varalakshmi Foundation</div>
+                    </div>
+                    <div class="experience-date">Aug 2025 – Nov 2025</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Completed hands-on training in AWS cloud fundamentals and Linux administration, with labs on EC2, S3, IAM, VPC, Aurora, Lambda and CloudWatch.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="subsection-title fade-in">Earlier Experience</h3>
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">AIML Intern</div>
+                        <div class="experience-company">Labmentix Private Limited</div>
+                    </div>
+                    <div class="experience-date">2025</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Built and trained machine learning models in Python with Pandas, NumPy and scikit-learn on real-world use cases.</li>
+                        <li>Handled data preprocessing, feature engineering and model evaluation, and turned the results into deployable solutions.</li>
+                        <li>Worked in a mentored, team-based setting on industry problem statements.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Scientist Intern</div>
+                        <div class="experience-company">Evoastra Ventures Inc (Remote)</div>
+                    </div>
+                    <div class="experience-date">Jul 2025 – Aug 2025</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Built predictive models and worked with complex datasets to extract actionable insights.</li>
+                        <li>Applied statistical modeling, machine learning and data visualization using Python, SQL and Power BI.</li>
+                        <li>Collaborated with cross-functional teams on data-driven business problems.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Analyst</div>
+                        <div class="experience-company">Ozibook Tech Solutions Pvt Ltd</div>
+                    </div>
+                    <div class="experience-date">Dec 2024 – Mar 2025</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Supported lead generation for IT, pharmaceutical and FMCG clients, targeting 900–1,200 leads per month.</li>
+                        <li>Identified and qualified leads from LinkedIn, Apollo and ContactOut.</li>
+                        <li>Built and automated interactive dashboards tracking weekly and monthly lead-generation progress.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Certifications</h2>
+            <div class="cert-grid fade-in">
+                <div class="cert-card">
+                    <img src="https://api.iconify.design/logos/aws.svg" alt="" class="cert-icon">
+                    <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                    <a href="https://drive.google.com/file/d/10F6EhxB_HMCqD36dh5j6snCJ7SPvfrh5/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Verify</a>
+                </div>
+                <div class="cert-card">
+                    <img src="https://api.iconify.design/logos/aws.svg" alt="" class="cert-icon">
+                    <div class="cert-name">AWS Certified Cloud Practitioner</div>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                    <a href="https://drive.google.com/file/d/1DXO4mrRorQ48-ywPeFcwGxYEZaV5xlf8/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Verify</a>
+                </div>
+                <div class="cert-card">
+                    <img src="https://api.iconify.design/tabler/certificate.svg?color=%2300d4ff" alt="" class="cert-icon">
+                    <div class="cert-name">TCS iON Career Edge – Young Professional</div>
+                    <div class="cert-issuer">Tata Consultancy Services</div>
+                    <a href="https://drive.google.com/file/d/1absF_-ctJZsYgDEOBrJU5aJOan1x5Si7/view?usp=sharing" class="project-link" target="_blank" rel="noopener">Verify</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Projects</h2>
+            <div class="projects-grid fade-in">
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">DeepCSAT – E-commerce Customer Satisfaction Prediction</div>
+                        <div class="project-tools">Python, NLP, scikit-learn, TensorFlow/Keras (Bi-LSTM), Streamlit</div>
+                        <div class="project-description">
+                            <p>Predicts whether a customer is satisfied from the free-text remarks left after a support interaction, using a TF-IDF + Logistic Regression baseline and a Bidirectional LSTM, served through a Streamlit app and a CLI. The baseline reaches 86.5% test accuracy (macro F1 0.78) against a 77.5% majority-class baseline.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/DeepCSAT-Ecommerce-Customer-Satisfaction-Score-Prediction" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Reddit Persona Generator – LLM Application</div>
+                        <div class="project-tools">Python, PRAW (Reddit API), OpenAI API, JSON</div>
+                        <div class="project-description">
+                            <p>Collects a Reddit user's recent posts and comments through the official Reddit API, caches them as structured JSON, and has an OpenAI GPT model build a behavioral persona in which every trait cites the post or comment it came from.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Reddit_Persona_Generator" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Integrated Retail Analytics for Store Optimization</div>
+                        <div class="project-tools">Python, Pandas, scikit-learn, XGBoost, FastAPI</div>
+                        <div class="project-description">
+                            <p>Merges 421,000+ weekly store and department sales records with store attributes and external factors (holidays, markdowns, fuel price, CPI, unemployment) to forecast weekly sales with Random Forest and XGBoost, exposed through a FastAPI prediction service.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Integrated-Retail-Analytics-for-Store-Optimization" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Job Intelligence Platform</div>
+                        <div class="project-tools">Python, SQLAlchemy, NLP, scikit-learn, FastAPI, Streamlit, Power BI</div>
+                        <div class="project-description">
+                            <p>End-to-end job-market analytics pipeline: scrapers pull live postings from the public Remotive and Arbeitnow APIs, an ETL step loads them into a relational database, NLP tags in-demand skills, an ML model estimates salaries, and insights are served through FastAPI, Streamlit and Power BI.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Job-Intelligence-Platform" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Aerial Object Classification &amp; Detection</div>
+                        <div class="project-tools">Python, TensorFlow (MobileNetV2), Ultralytics YOLOv8, Streamlit</div>
+                        <div class="project-description">
+                            <p>Tells birds from drones in aerial images: a MobileNetV2 transfer-learning classifier scores 0.97 test accuracy, and a fine-tuned YOLOv8n detector (mAP50 0.795) locates and counts every bird and drone in a scene, both available in a Streamlit app.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Aerial-Object-Classification-Detection" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">EMIPredict AI – Financial Risk Assessment Platform</div>
+                        <div class="project-tools">Python, scikit-learn, XGBoost, MLflow, Streamlit</div>
+                        <div class="project-description">
+                            <p>Predicts EMI eligibility (classification) and a safe maximum monthly EMI (regression) from applicant financial profiles, with feature engineering on affordability and debt ratios, MLflow experiment tracking and a multi-page Streamlit app.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/EMIPredict-AI---Intelligent-Financial-Risk-Assessment-Platform" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Credit Risk Analyzer</div>
+                        <div class="project-tools">Core Java, CSV Processing, CLI Application</div>
+                        <div class="project-description">
+                            <p>Dependency-free Java CLI that combines CIBIL score, payment history, credit utilization, credit age, debt-to-income ratio and hard inquiries into a weighted 0–100 composite score. On a 10,000-applicant synthetic dataset it classifies 1,662 as LOW, 4,767 as MEDIUM and 3,571 as HIGH risk and writes a CSV report.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Credit-Risk-Analyzer" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Cloud Build → GKE CI/CD Pipeline (sample-app)</div>
+                        <div class="project-tools">Go, Docker (distroless), Google Cloud Build, Artifact Registry, GKE, Kubernetes</div>
+                        <div class="project-description">
+                            <p>Minimal Go web service shipped through Google Cloud Build pipelines that run tests, build a multi-stage distroless image, push it to Artifact Registry and deploy to separate dev and prod namespaces on GKE, with 3-replica Deployments and health probes.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/sample-app" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Call-Center Performance Dashboard</div>
+                        <div class="project-tools">Power BI, Power Query, Excel</div>
+                        <div class="project-description">
+                            <p>One-page Power BI report on call-center data showing answered vs. unanswered calls, call load and satisfaction ratings by agent, and speed of answer by call topic.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/Spam-Call-Analysis-" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">IoT Fire Detection System</div>
+                        <div class="project-tools">Raspberry Pi 3, Flame Sensor, MQ2 Sensor, Arduino</div>
+                        <div class="project-description">
+                            <p>Real-time fire detection system that combines flame detection and smoke sensing on a Raspberry Pi to raise alerts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Weekly Builds</div>
+                        <div class="project-tools">AWS, Linux, ML, Data Analytics</div>
+                        <div class="project-description">
+                            <p>An ongoing series of full-stack projects shipped every Tuesday, Thursday and Saturday, each with a frontend, backend, tests, Docker, CI and a free-tier deployment.</p>
+                        </div>
+                    </div>
+                    <div><a href="https://github.com/Gonugunta-Venkata-Jayanth/weekly-builds" class="project-link" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Education</h2>
+            
+            <div class="education-item fade-in">
+                <div class="education-degree">Bachelor of Technology (B.Tech)</div>
+                <div class="education-school">KG Reddy College Of Engineering And Technology</div>
+                <div class="education-details">
+                    <p>Computer Science Engineering (Artificial Intelligence and Machine Learning)</p>
+                    <p>CGPA: 7.53 | 2021 - 2025</p>
+                    <p>Hyderabad, Telangana, India</p>
+                </div>
+            </div>
+
+            <div class="education-item fade-in">
+                <div class="education-degree">Intermediate Education</div>
+                <div class="education-school">Toppers Junior College</div>
+                <div class="education-details">
+                    <p>Telangana Board Of Intermediate Education</p>
+                    <p>Major: Mathematics, Physics, Chemistry</p>
+                    <p>Marks Secured: 564/1000 | 2019 - 2021</p>
+                    <p>Hyderabad, Telangana, India</p>
+                </div>
+            </div>
+
+            <div class="education-item fade-in">
+                <div class="education-degree">Secondary School Certificate</div>
+                <div class="education-school">Narayana Etechno School</div>
+                <div class="education-details">
+                    <p>Secondary Education</p>
+                    <p>CGPA: 8.0</p>
+                    <p>Hyderabad, Telangana, India</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Contact Me</h2>
+            <div class="contact-info fade-in">
+                <div class="contact-item">
+                    <img src="https://api.iconify.design/logos/google-gmail.svg" alt="Email">
+                    <a href="mailto:jayanth792033@gmail.com">jayanth792033@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <img src="https://api.iconify.design/tabler/phone.svg?color=%2300d4ff" alt="Phone">
+                    <a href="tel:+919182015768">+91 9182015768</a>
+                </div>
+                <div class="contact-item">
+                    <img src="https://api.iconify.design/tabler/map-pin.svg?color=%2300d4ff" alt="Location">
+                    <span>Hyderabad, Telangana, India</span>
+                </div>
+                <div class="contact-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                    <a href="https://www.linkedin.com/in/gv-jayanth" target="_blank" rel="noopener">linkedin.com/in/gv-jayanth</a>
+                </div>
+                <div class="contact-item">
+                    <img src="https://api.iconify.design/mdi/github.svg?color=%23ffffff" alt="GitHub">
+                    <a href="https://github.com/Gonugunta-Venkata-Jayanth" target="_blank" rel="noopener">github.com/Gonugunta-Venkata-Jayanth</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:jayanth792033@gmail.com" title="Email">
+                    <img src="https://api.iconify.design/logos/google-gmail.svg" alt="Gmail" class="social-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/gv-jayanth" title="LinkedIn" target="_blank" rel="noopener">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a href="https://github.com/Gonugunta-Venkata-Jayanth" title="GitHub" target="_blank" rel="noopener">
+                    <img src="https://api.iconify.design/mdi/github.svg?color=%23ffffff" alt="GitHub" class="social-icon">
+                </a>
+            </div>
+            <p>&copy; <span id="footer-year">2026</span> Jayanth Gonugunta Venkata. All rights reserved.</p>
+            <p>Cloud • DevOps • AI/ML</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some dynamic effects
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            // Subtle parallax effect for background
+            const body = document.body;
+            const offsetX = (mouseX / window.innerWidth - 0.5) * 20;
+            const offsetY = (mouseY / window.innerHeight - 0.5) * 20;
+            
+            body.style.backgroundPosition = `${50 + offsetX}% ${50 + offsetY}%`;
+        });
+        
+        // --- Read Aloud (browser Web Speech API, no API key needed) ---
+        const ttsButton = document.getElementById('ttsButton');
+        const aboutText = document.getElementById('about-text-content');
+        const ICON_PLAY = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+        const ICON_PAUSE = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+
+        function setTtsButton(icon, label) {
+            ttsButton.innerHTML = icon + '<span>' + label + '</span>';
+        }
+
+        function getAboutText() {
+            return aboutText.innerText
+                .replace('☁️ Professional Summary', 'Professional Summary.')
+                .replace('🚀 What I Do', 'What I Do.')
+                .replace(/▶/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        if (!ttsButton || !aboutText || !('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+            // Browser has no speech synthesis: hide the button instead of showing a dead control
+            if (ttsButton) ttsButton.style.display = 'none';
+        } else {
+            const synth = window.speechSynthesis;
+            let state = 'idle'; // idle | speaking | paused
+
+            function pickVoice() {
+                const voices = synth.getVoices();
+                return voices.find(v => /^en-IN/i.test(v.lang))
+                    || voices.find(v => /^en(-|_)/i.test(v.lang) && v.localService)
+                    || voices.find(v => /^en/i.test(v.lang))
+                    || null;
+            }
+
+            function resetTts() {
+                state = 'idle';
+                setTtsButton(ICON_PLAY, 'Read Aloud');
+            }
+
+            function startSpeaking() {
+                synth.cancel();
+                const utterance = new SpeechSynthesisUtterance(getAboutText());
+                const voice = pickVoice();
+                if (voice) {
+                    utterance.voice = voice;
+                    utterance.lang = voice.lang;
+                } else {
+                    utterance.lang = 'en-US';
+                }
+                utterance.rate = 1;
+                utterance.pitch = 1;
+                utterance.onend = resetTts;
+                utterance.onerror = (event) => {
+                    if (event.error !== 'interrupted' && event.error !== 'canceled') {
+                        console.error('Speech synthesis error:', event.error);
+                    }
+                    resetTts();
+                };
+                synth.speak(utterance);
+                state = 'speaking';
+                setTtsButton(ICON_PAUSE, 'Pause');
+            }
+
+            ttsButton.addEventListener('click', () => {
+                if (state === 'speaking') {
+                    synth.pause();
+                    state = 'paused';
+                    setTtsButton(ICON_PLAY, 'Resume');
+                } else if (state === 'paused') {
+                    synth.resume();
+                    state = 'speaking';
+                    setTtsButton(ICON_PAUSE, 'Pause');
+                } else {
+                    startSpeaking();
+                }
+            });
+
+            // Voices load asynchronously in some browsers (Chrome)
+            if (typeof synth.onvoiceschanged !== 'undefined') {
+                synth.onvoiceschanged = () => synth.getVoices();
+            }
+            // Stop speaking when the visitor leaves the page
+            window.addEventListener('pagehide', () => synth.cancel());
+        }
+    </script>
+</body>
+</html>
