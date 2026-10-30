@@ -629,6 +629,7 @@
         <div class="container">
             <div class="section-header-row fade-in">
                 <h2 class="section-title">About Me</h2>
+                <button type="button" id="ttsButton" class="tts-button" aria-label="Read the About section aloud"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg><span>Read Aloud</span></button>
             </div>
             <div class="about-content fade-in">
                 <img src="Jayanth.jpg" alt="Jayanth Gonugunta Venkata" class="profile-pic">
@@ -1041,62 +1042,6 @@
     </footer>
     
     <script>
-        // Helper function to convert base64 to ArrayBuffer
-        function base64ToArrayBuffer(base64) {
-            const binaryString = window.atob(base64);
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-                bytes[i] = binaryString.charCodeAt(i);
-            }
-            return bytes.buffer;
-        }
-
-        // Helper function to convert PCM audio data to WAV format
-        function pcmToWav(pcmData, sampleRate) {
-            const dataLength = pcmData.length;
-            const buffer = new ArrayBuffer(44 + dataLength * 2);
-            const view = new DataView(buffer);
-            let offset = 0;
-
-            function writeString(str) {
-                for (let i = 0; i < str.length; i++) {
-                    view.setUint8(offset + i, str.charCodeAt(i));
-                }
-            }
-
-            function writeUint32(value) {
-                view.setUint32(offset, value, true);
-                offset += 4;
-            }
-
-            function writeUint16(value) {
-                view.setUint16(offset, value, true);
-                offset += 2;
-            }
-
-            writeString('RIFF'); offset += 4;
-            writeUint32(36 + dataLength * 2);
-            writeString('WAVE'); offset += 4;
-            writeString('fmt '); offset += 4;
-            writeUint32(16); // subchunk1size
-            writeUint16(1); // audio format (1 = PCM)
-            writeUint16(1); // num channels
-            writeUint32(sampleRate); // sample rate
-            writeUint32(sampleRate * 2); // byte rate
-            writeUint16(2); // block align
-            writeUint16(16); // bits per sample
-            writeString('data'); offset += 4;
-            writeUint32(dataLength * 2);
-            for (let i = 0; i < pcmData.length; i++) {
-                view.setInt16(offset, pcmData[i], true);
-                offset += 2;
-            }
-
-            return new Blob([view], { type: 'audio/wav' });
-        }
-
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1143,98 +1088,90 @@
             body.style.backgroundPosition = `${50 + offsetX}% ${50 + offsetY}%`;
         });
         
-        // --- Gemini API Integrations ---
-
-        // 2. Text-to-Speech (TTS) Feature
+        // --- Read Aloud (browser Web Speech API, no API key needed) ---
         const ttsButton = document.getElementById('ttsButton');
-        const audioPlayer = document.getElementById('audioPlayer');
         const aboutText = document.getElementById('about-text-content');
-        let isPlaying = false;
-        let audioBlob = null;
-        let audioUrl = null;
+        const ICON_PLAY = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+        const ICON_PAUSE = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
 
-        ttsButton.addEventListener('click', async () => {
-            if (isPlaying) {
-                audioPlayer.pause();
-                isPlaying = false;
-                ttsButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg><span>Read Aloud</span>`;
-                return;
+        function setTtsButton(icon, label) {
+            ttsButton.innerHTML = icon + '<span>' + label + '</span>';
+        }
+
+        function getAboutText() {
+            return aboutText.innerText
+                .replace('🎯 Career Objective', 'Career Objective.')
+                .replace('🚀 Core Expertise', 'Core Expertise.')
+                .replace(/▶/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        if (!ttsButton || !aboutText || !('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+            // Browser has no speech synthesis: hide the button instead of showing a dead control
+            if (ttsButton) ttsButton.style.display = 'none';
+        } else {
+            const synth = window.speechSynthesis;
+            let state = 'idle'; // idle | speaking | paused
+
+            function pickVoice() {
+                const voices = synth.getVoices();
+                return voices.find(v => /^en-IN/i.test(v.lang))
+                    || voices.find(v => /^en(-|_)/i.test(v.lang) && v.localService)
+                    || voices.find(v => /^en/i.test(v.lang))
+                    || null;
             }
 
-            if (audioBlob) {
-                audioPlayer.play();
-                isPlaying = true;
-                ttsButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg><span>Pause</span>`;
-                return;
+            function resetTts() {
+                state = 'idle';
+                setTtsButton(ICON_PLAY, 'Read Aloud');
             }
 
-            ttsButton.disabled = true;
-            ttsButton.innerHTML = '<div class="loading-spinner"></div><span>Generating Audio</span>';
-            const textToSpeak = aboutText.innerText.replace('🎯 Career Objective', '').replace('🚀 Core Expertise', '').replace('Mission:', '').trim();
-
-            try {
-                const payload = {
-                    contents: [{
-                        parts: [{ text: textToSpeak }]
-                    }],
-                    generationConfig: {
-                        responseModalities: ["AUDIO"],
-                        speechConfig: {
-                            voiceConfig: {
-                                prebuiltVoiceConfig: { voiceName: "Iapetus" }
-                            }
-                        }
-                    }
-                };
-                
-                const apiKey = ""
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
-                
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                if (!response.ok) {
-                    const error = await response.json();
-                    throw new Error(`API call failed: ${JSON.stringify(error)}`);
-                }
-
-                const result = await response.json();
-                const part = result?.candidates?.[0]?.content?.parts?.[0];
-                const audioData = part?.inlineData?.data;
-                const mimeType = part?.inlineData?.mimeType;
-
-                if (audioData && mimeType && mimeType.startsWith("audio/")) {
-                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10);
-                    const pcmData = base64ToArrayBuffer(audioData);
-                    const pcm16 = new Int16Array(pcmData);
-                    audioBlob = pcmToWav(pcm16, sampleRate);
-                    audioUrl = URL.createObjectURL(audioBlob);
-
-                    audioPlayer.src = audioUrl;
-                    audioPlayer.play();
-                    isPlaying = true;
-                    ttsButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg><span>Pause</span>`;
+            function startSpeaking() {
+                synth.cancel();
+                const utterance = new SpeechSynthesisUtterance(getAboutText());
+                const voice = pickVoice();
+                if (voice) {
+                    utterance.voice = voice;
+                    utterance.lang = voice.lang;
                 } else {
-                    console.error('Unexpected API response structure for TTS');
-                    ttsButton.innerHTML = `<span>Error</span>`;
-                    setTimeout(() => ttsButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg><span>Read Aloud</span>`, 2000);
+                    utterance.lang = 'en-US';
                 }
-            } catch (error) {
-                console.error("Error generating TTS:", error);
-                ttsButton.innerHTML = `<span>Error</span>`;
-                setTimeout(() => ttsButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg><span>Read Aloud</span>`, 2000);
-            } finally {
-                ttsButton.disabled = false;
+                utterance.rate = 1;
+                utterance.pitch = 1;
+                utterance.onend = resetTts;
+                utterance.onerror = (event) => {
+                    if (event.error !== 'interrupted' && event.error !== 'canceled') {
+                        console.error('Speech synthesis error:', event.error);
+                    }
+                    resetTts();
+                };
+                synth.speak(utterance);
+                state = 'speaking';
+                setTtsButton(ICON_PAUSE, 'Pause');
             }
-        });
 
-        audioPlayer.addEventListener('ended', () => {
-            isPlaying = false;
-            ttsButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg><span>Read Aloud</span>`;
-        });
+            ttsButton.addEventListener('click', () => {
+                if (state === 'speaking') {
+                    synth.pause();
+                    state = 'paused';
+                    setTtsButton(ICON_PLAY, 'Resume');
+                } else if (state === 'paused') {
+                    synth.resume();
+                    state = 'speaking';
+                    setTtsButton(ICON_PAUSE, 'Pause');
+                } else {
+                    startSpeaking();
+                }
+            });
+
+            // Voices load asynchronously in some browsers (Chrome)
+            if (typeof synth.onvoiceschanged !== 'undefined') {
+                synth.onvoiceschanged = () => synth.getVoices();
+            }
+            // Stop speaking when the visitor leaves the page
+            window.addEventListener('pagehide', () => synth.cancel());
+        }
     </script>
 </body>
 </html>
