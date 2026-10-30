@@ -1,0 +1,12 @@
+# Secrets (e.g. a Gemini API key kept outside the HTML)
+.env
+.env.*
+
+# Netlify local folder
+.netlify/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
