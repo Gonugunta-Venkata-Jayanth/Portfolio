@@ -22,7 +22,7 @@
 - **Mouse-driven parallax** on the SVG grid / gradient background.
 - **Skill icon grid** grouped into Programming Languages, AI/ML, Data Visualization, Cloud & DevOps, Development Tools and Soft Skills, using version-pinned SVG icons from [Devicon](https://devicon.dev/) (via jsDelivr) and [Iconify](https://iconify.design/), with no hot-linked third-party images.
 - **Project cards** linking to their repositories under [github.com/Gonugunta-Venkata-Jayanth](https://github.com/Gonugunta-Venkata-Jayanth) and a Google Drive write-up.
-- **"Read Aloud" button** in the About section: reads the About text with the browser's built-in [Web Speech API](https://developer.mozilla.org/docs/Web/API/SpeechSynthesis) (`speechSynthesis`), with Pause / Resume. No API key, server or network call is needed; it prefers an `en-IN` voice when the browser has one, and the button hides itself in browsers without speech synthesis.
+- **"Read Aloud" button** in the About section: reads the About text with the browser's built-in [Web Speech API](https://developer.mozilla.org/docs/Web/API/SpeechSynthesis) (`speechSynthesis`), with Pause / Resume. No API key or backend is needed (the browser supplies the voices); it prefers an `en-IN` voice when the browser has one, and the button hides itself in browsers without speech synthesis.
 - **Responsive layout** with a mobile media query.
 
 ## 🛠 Tech Stack
