@@ -6,7 +6,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?logo=javascript&logoColor=black)
-![Gemini](https://img.shields.io/badge/Gemini-TTS-8E75B2?logo=googlegemini&logoColor=white)
+![Web Speech API](https://img.shields.io/badge/Read%20Aloud-Web%20Speech%20API-8E75B2)
 ![Netlify](https://img.shields.io/badge/Hosted%20on-Netlify-00C7B7?logo=netlify&logoColor=white)
 
 🔗 **Live:** https://jayanth-gonugunta-venkata.netlify.app/
@@ -20,9 +20,9 @@
 - **Sticky, blurred top bar** with smooth-scroll navigation to each section.
 - **Scroll-reveal animations** using `IntersectionObserver` (`.fade-in` → `.visible`).
 - **Mouse-driven parallax** on the SVG grid / gradient background.
-- **Skill icon grid** grouped into Programming Languages, AI/ML, Data Visualization, Cloud & DevOps, Development Tools and Soft Skills (Devicon CDN icons).
-- **Project cards** linking to their GitHub repositories and a Google Drive write-up.
-- **"Read Aloud" button**: sends the About text to the Google Gemini TTS API (`gemini-2.5-flash-preview-tts`, voice "Iapetus"), converts the returned PCM audio to WAV in the browser, and plays it with play / pause toggling. *Requires a Gemini API key. The key is left blank in the committed source.*
+- **Skill icon grid** grouped into Programming Languages, AI/ML, Data Visualization, Cloud & DevOps, Development Tools and Soft Skills, using version-pinned SVG icons from [Devicon](https://devicon.dev/) (via jsDelivr) and [Iconify](https://iconify.design/), with no hot-linked third-party images.
+- **Project cards** linking to their repositories under [github.com/Gonugunta-Venkata-Jayanth](https://github.com/Gonugunta-Venkata-Jayanth) and a Google Drive write-up.
+- **"Read Aloud" button** in the About section: reads the About text with the browser's built-in [Web Speech API](https://developer.mozilla.org/docs/Web/API/SpeechSynthesis) (`speechSynthesis`), with Pause / Resume. No API key, server or network call is needed; it prefers an `en-IN` voice when the browser has one, and the button hides itself in browsers without speech synthesis.
 - **Responsive layout** with a mobile media query.
 
 ## 🛠 Tech Stack
@@ -30,9 +30,9 @@
 | Area | Tools |
 |---|---|
 | Markup / styling | HTML5, CSS3 (flexbox, gradients, `backdrop-filter`, keyframe animations) |
-| Scripting | Vanilla JavaScript (`IntersectionObserver`, `fetch`, `DataView` WAV encoding) |
-| Icons | [Devicon](https://devicon.dev/) via jsDelivr CDN |
-| Text-to-speech | Google Gemini API (TTS preview model) |
+| Scripting | Vanilla JavaScript (`IntersectionObserver`, `speechSynthesis`) |
+| Icons | [Devicon](https://devicon.dev/) v2.18.0 via jsDelivr, [Iconify](https://iconify.design/) |
+| Text-to-speech | Browser Web Speech API (`speechSynthesis`) |
 | Hosting | Netlify |
 
 ## 🏗 Page Flow
@@ -47,9 +47,8 @@ flowchart TD
     N --> ED["Education"]
     N --> C["Contact"]
     A --> T["Read Aloud button"]
-    T -->|"POST About text"| G[("Gemini TTS API")]
-    G -->|"base64 PCM"| W["pcmToWav() → audio/wav Blob"]
-    W --> AU["HTML audio player"]
+    T -->|"About text"| W["window.speechSynthesis (in the browser)"]
+    W --> AU["Spoken audio · Pause / Resume"]
     P -->|"View on GitHub"| GH[("GitHub repos")]
 ```
 
@@ -57,7 +56,8 @@ flowchart TD
 
 ```
 Portfolio/
-├── jayanth_portfolio.html   # The whole site: markup, styles and scripts
+├── index.html               # The whole site: markup, styles and scripts
+├── jayanth_portfolio.html   # Redirect stub to index.html (keeps old links working)
 ├── Jayanth.jpg              # Profile photo used in the About section
 └── README.md
 ```
@@ -69,34 +69,27 @@ No dependencies. Either open the file directly:
 ```bash
 git clone https://github.com/Gonugunta-Venkata-Jayanth/Portfolio.git
 cd Portfolio
-open jayanth_portfolio.html          # Windows: start jayanth_portfolio.html · Linux: xdg-open jayanth_portfolio.html
+open index.html          # Windows: start index.html · Linux: xdg-open index.html
 ```
 
-…or serve it (recommended, so relative paths and `fetch` behave as in production):
+…or serve it (recommended, so relative paths behave as in production):
 
 ```bash
 python -m http.server 8000
-# then visit http://localhost:8000/jayanth_portfolio.html
+# then visit http://localhost:8000/
 ```
-
-### Enabling "Read Aloud" (optional)
-
-Set `apiKey` in the `<script>` block of `jayanth_portfolio.html` to a Gemini API key from [Google AI Studio](https://aistudio.google.com/). Restrict the key to your site's domain (HTTP referrer restriction) before deploying, because any key placed in client-side JavaScript is visible to visitors.
 
 ## ☁️ Deploy
 
 The live site is hosted on **Netlify**: https://jayanth-gonugunta-venkata.netlify.app/
 
-To redeploy, drag the folder into Netlify's deploy UI or connect this repository. Netlify serves `index.html` at the root URL by default, so the site's HTML must be published as `index.html`.
+The site is published as `index.html`, which Netlify and GitHub Pages serve at the root URL with no extra configuration. To redeploy, connect this repository in Netlify (Site configuration → Build & deploy → Link repository; no build command, publish directory `/`) so every push to `main` deploys automatically, or drag the folder into Netlify's deploy UI.
 
 ## 🔮 Future Work
 
-- Rename `jayanth_portfolio.html` to `index.html` so the repo deploys to Netlify or GitHub Pages with no extra configuration.
-- Point the GitHub links at the current profile, `github.com/Gonugunta-Venkata-Jayanth`.
-- Move the Gemini call behind a Netlify Function so no API key lives in the browser.
-- Self-host skill icons that are currently hot-linked from third-party sites.
 - Add Open Graph / SEO meta tags, a favicon and a downloadable résumé.
 - Add projects that aren't listed yet (e.g. DeepCSAT, Shortest Path Finder).
+- Self-host the icon SVGs in the repo so the page has no external image dependencies at all.
 
 ## 👤 Author
 
