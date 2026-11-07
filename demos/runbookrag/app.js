@@ -21,13 +21,17 @@ const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">
 // Render `inline code` from the runbooks after escaping.
 const fmt = (s) => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>");
 
+// Highlight query terms on escaped text first, then render inline code, so markup is never matched.
 function highlight(text, terms) {
   if (!terms.length) return fmt(text);
-  return fmt(text).replace(/[A-Za-z0-9]+/g, (w) => {
+  const marked = esc(text).replace(/&#?\w+;|[A-Za-z0-9]+/g, (w) => {
+    if (w.startsWith("&")) return w;
     const t = engine ? engine.tokenize(w)[0] : w.toLowerCase();
     return t && terms.includes(t) ? `<mark>${w}</mark>` : w;
   });
+  return marked.replace(/`([^`]+)`/g, "<code>$1</code>");
 }
+const MODE_LABEL = { hybrid: "hybrid", bm25: "BM25", dense: "semantic (LSA)" };
 
 async function api(path, opts) {
   const res = await fetch(cfg.apiBase + path, opts);
@@ -119,7 +123,7 @@ function renderAnswer(r) {
 }
 
 function renderResults(hits, ms) {
-  $("#latency").textContent = `${hits.length} sections · ${ms.toFixed(1)} ms · ${mode}`;
+  $("#latency").textContent = `${hits.length} sections · ${ms.toFixed(1)} ms · ${MODE_LABEL[mode]}`;
   if (!hits.length) { $("#results").innerHTML = `<li class="muted">No section matched the query terms.</li>`; return; }
   $("#results").innerHTML = hits.map((h) => `<li class="hit" data-id="${h.id}" data-doc="${h.doc}">
       <div class="hit-head"><strong>${h.rank}. ${esc(h.title)} · ${esc(h.section)}</strong><span class="score">${h.score.toFixed(4)}</span></div>
