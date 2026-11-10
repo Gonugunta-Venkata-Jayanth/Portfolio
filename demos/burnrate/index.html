@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BurnRate · SLO error-budget alerting</title>
+  <meta name="description" content="Multi-window, multi-burn-rate SLO alerting: live HTTP probes, error-budget tracking and a policy simulator that runs the same Go engine in the browser through WebAssembly.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <h1>BurnRate</h1>
+          <p class="tag">SLO error-budget alerting with multi-window burn rates</p>
+        </div>
+      </div>
+      <div class="engine" id="engine" title="Where the simulation runs">engine: loading</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="live" class="panel" hidden>
+      <div class="panel-head">
+        <h2>Live targets</h2>
+        <span class="muted" id="live-updated"></span>
+      </div>
+      <div class="targets" id="targets"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Policy simulator</h2>
+        <span class="muted">30 days of synthetic traffic, evaluated minute by minute</span>
+      </div>
+
+      <form id="controls" class="controls" autocomplete="off">
+        <label>Scenario
+          <select id="scenario"></select>
+        </label>
+        <label>Objective
+          <select id="target">
+            <option value="0.99">99%</option>
+            <option value="0.995">99.5%</option>
+            <option value="0.999" selected>99.9%</option>
+            <option value="0.9995">99.95%</option>
+          </select>
+        </label>
+        <label>Keep firing for
+          <select id="keep">
+            <option value="0s">0 (workbook)</option>
+            <option value="5m">5 min</option>
+            <option value="15m">15 min</option>
+            <option value="30m">30 min</option>
+          </select>
+        </label>
+        <label>Seed
+          <input id="seed" type="number" min="1" max="999999" value="42">
+        </label>
+        <fieldset id="custom" class="custom" hidden>
+          <label>Error rate <output id="rate-out">5%</output>
+            <input id="rate" type="range" min="0.1" max="100" step="0.1" value="5">
+          </label>
+          <label>Duration <output id="dur-out">180 min</output>
+            <input id="dur" type="range" min="5" max="2880" step="5" value="180">
+          </label>
+        </fieldset>
+        <button type="submit" class="run">Run</button>
+      </form>
+      <p class="desc" id="desc"></p>
+
+      <div class="kpis" id="kpis"></div>
+
+      <div class="chart-head">
+        <h3>Burn rate by rule (long window)</h3>
+        <div class="seg" role="group" aria-label="Range">
+          <button type="button" data-range="incident" class="on">Incident</button>
+          <button type="button" data-range="full">30 days</button>
+        </div>
+      </div>
+      <canvas id="burn" height="280" aria-label="Burn rate chart"></canvas>
+      <div class="legend" id="legend"></div>
+
+      <h3>Error budget remaining</h3>
+      <canvas id="budget" height="160" aria-label="Error budget chart"></canvas>
+
+      <h3>Alerts</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rule</th><th>Severity</th><th>Fired</th><th>Resolved</th><th>Duration</th><th>Peak burn</th></tr></thead>
+          <tbody id="alerts"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2>Alert policy</h2><span class="muted">Google SRE Workbook defaults for a 30-day window</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rule</th><th>Severity</th><th>Long window</th><th>Short window</th><th>Burn factor</th><th>Budget spent at trigger</th></tr></thead>
+          <tbody id="rules"></tbody>
+        </table>
+      </div>
+      <p class="muted small">An alert fires when the burn rate exceeds the factor over both windows. The long window gives significance; the short window makes the alert reset quickly once the incident ends.</p>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <a href="https://github.com/Gonugunta-Venkata-Jayanth/BurnRate">Source on GitHub</a>
+    <span>MIT License</span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="wasm_exec.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

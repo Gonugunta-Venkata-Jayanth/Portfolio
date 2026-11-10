@@ -1,0 +1,192 @@
+{
+  "note": "Synthetic traffic: 30 days at 100 requests/minute, 0.02% background errors, incidents injected on day 20.",
+  "objective": {
+    "name": "availability",
+    "target": 0.999,
+    "window": "30d"
+  },
+  "rules": [
+    {
+      "name": "fast-burn",
+      "severity": "page",
+      "long_window": "1h",
+      "short_window": "5m",
+      "factor": 14.4
+    },
+    {
+      "name": "medium-burn",
+      "severity": "page",
+      "long_window": "6h",
+      "short_window": "30m",
+      "factor": 6
+    },
+    {
+      "name": "slow-burn",
+      "severity": "ticket",
+      "long_window": "1d",
+      "short_window": "2h",
+      "factor": 3
+    },
+    {
+      "name": "gradual-burn",
+      "severity": "ticket",
+      "long_window": "3d",
+      "short_window": "6h",
+      "factor": 1
+    }
+  ],
+  "results": [
+    {
+      "scenario": "steady",
+      "description": "Background errors only. A correct policy raises no alert.",
+      "policy": "workbook",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 0,
+      "median_ttd_min": 0,
+      "max_ttd_min": 0,
+      "bound_min": 0,
+      "false_positives": 0,
+      "refires": 0,
+      "mean_alerts": 0,
+      "mean_budget_spent": 0.2
+    },
+    {
+      "scenario": "hard-outage",
+      "description": "Every request fails for 15 minutes.",
+      "policy": "workbook",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 1,
+      "max_ttd_min": 1,
+      "bound_min": 5,
+      "false_positives": 0,
+      "refires": 0,
+      "mean_alerts": 4,
+      "mean_budget_spent": 0.55
+    },
+    {
+      "scenario": "brownout",
+      "description": "5% of requests fail for 3 hours.",
+      "policy": "workbook",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 18,
+      "max_ttd_min": 23,
+      "bound_min": 30,
+      "false_positives": 0,
+      "refires": 0,
+      "mean_alerts": 4,
+      "mean_budget_spent": 0.4
+    },
+    {
+      "scenario": "slow-burn",
+      "description": "0.5% of requests fail for 2 days.",
+      "policy": "workbook",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 701,
+      "max_ttd_min": 808,
+      "bound_min": 1080,
+      "false_positives": 0,
+      "refires": 19,
+      "mean_alerts": 3.2,
+      "mean_budget_spent": 0.52
+    },
+    {
+      "scenario": "repeat-brownouts",
+      "description": "3% errors for 45 minutes, three times, 8 hours apart.",
+      "policy": "workbook",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 29,
+      "max_ttd_min": 36,
+      "bound_min": 40,
+      "false_positives": 0,
+      "refires": 5,
+      "mean_alerts": 4.65,
+      "mean_budget_spent": 0.29
+    },
+    {
+      "scenario": "steady",
+      "description": "Background errors only. A correct policy raises no alert.",
+      "policy": "keep-firing-15m",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 0,
+      "median_ttd_min": 0,
+      "max_ttd_min": 0,
+      "bound_min": 0,
+      "false_positives": 0,
+      "refires": 0,
+      "mean_alerts": 0,
+      "mean_budget_spent": 0.2
+    },
+    {
+      "scenario": "hard-outage",
+      "description": "Every request fails for 15 minutes.",
+      "policy": "keep-firing-15m",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 1,
+      "max_ttd_min": 1,
+      "bound_min": 5,
+      "false_positives": 0,
+      "refires": 0,
+      "mean_alerts": 4,
+      "mean_budget_spent": 0.55
+    },
+    {
+      "scenario": "brownout",
+      "description": "5% of requests fail for 3 hours.",
+      "policy": "keep-firing-15m",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 18,
+      "max_ttd_min": 23,
+      "bound_min": 30,
+      "false_positives": 0,
+      "refires": 0,
+      "mean_alerts": 4,
+      "mean_budget_spent": 0.4
+    },
+    {
+      "scenario": "slow-burn",
+      "description": "0.5% of requests fail for 2 days.",
+      "policy": "keep-firing-15m",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 701,
+      "max_ttd_min": 808,
+      "bound_min": 1080,
+      "false_positives": 0,
+      "refires": 1,
+      "mean_alerts": 2.25,
+      "mean_budget_spent": 0.52
+    },
+    {
+      "scenario": "repeat-brownouts",
+      "description": "3% errors for 45 minutes, three times, 8 hours apart.",
+      "policy": "keep-firing-15m",
+      "seeds": 20,
+      "passed": 20,
+      "detection_rate": 1,
+      "median_ttd_min": 29,
+      "max_ttd_min": 36,
+      "bound_min": 40,
+      "false_positives": 0,
+      "refires": 0,
+      "mean_alerts": 4.4,
+      "mean_budget_spent": 0.29
+    }
+  ],
+  "elapsed_ms": 3956,
+  "all_passed": true
+}
